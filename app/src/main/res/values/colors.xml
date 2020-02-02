@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+    <color name="text_color_white">@android:color/white</color>
+    <color name="text_color_black">@android:color/black</color>
+    <color name="button_stroke_color_yellow">#FFEA1D</color>
+
+    <color name="button_blue">#090D3A</color>
+    <color name="button_blue_text_color">#FEFEFC</color>
+    <color name="button_yellow_text_color">#1E1A3B</color>
+    <color name="button_yellow">#FFEA1D</color>
+    <color name="fragment_background_color">#E8313355</color>
+</resources>

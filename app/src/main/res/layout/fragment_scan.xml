@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@mipmap/fragment_background"
+    tools:context=".ScanFragment">
+
+    <LinearLayout
+        android:paddingTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="800dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:textSize="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="①出示小程序预约码 ----------- ②验证身份 ---------- ③解锁预约机器"
+            android:textColor="@color/text_color_white" />
+
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="@color/text_color_white"
+                    android:textSize="28dp"
+                    android:text="请将小程序预约码"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@color/button_stroke_color_yellow"
+                    android:textSize="30dp"
+                    android:text="“放置扫码区别”"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <FrameLayout
+                android:background="@mipmap/normal_frame"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="360dp">
+                <FrameLayout
+                    android:background="@drawable/shape_scan_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <ImageView
+                    android:src="@mipmap/phone_icon"
+                    android:layout_gravity="center"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_zhuyi"
+                android:text="注意事项 ："
+                android:textColor="@color/button_stroke_color_yellow"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:lineSpacingExtra="16dp"
+                android:textSize="17dp"
+                android:text="a.扫码成功后需出示预约码，本人身份证进行身份验证，认证通过方可解锁预约的机器\nb.预约机器从预约开始，如有疑问请咨询平台客服\nc.扫码失败，请根据具体提示操作"
+                android:textColor="@color/text_color_white"
+                android:layout_toRightOf="@id/tv_zhuyi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <include layout="@layout/layout_fragment_button"/>
+
+        </FrameLayout>
+
+        <include layout="@layout/layout_copyright"/>
+
+    </LinearLayout>
+
+</FrameLayout>
