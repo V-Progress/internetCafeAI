@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="recharge_amt_button_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">80dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@drawable/selector_recharge_amt_text</item>
+        <item name="android:background">@drawable/selector_recharge_amt</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
 </resources>

@@ -9,11 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class RechargeFragment extends Fragment {
+public class RechargeFragment extends BaseFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_recharge, container, false);
+    protected int getLayout() {
+        return R.layout.fragment_recharge;
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
     }
 }

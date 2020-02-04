@@ -3,12 +3,157 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/fragment_background"
     tools:context=".BalanceFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="1200dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:padding="80dp"
+            android:background="@drawable/shape_balance_background"
+            android:orientation="vertical"
+            android:layout_marginTop="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="800dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:background="@drawable/shape_recharge_edit_bg"
+                    android:padding="30dp"
+                    android:textSize="32dp"
+                    android:gravity="center"
+                    android:hint="请输入卡号"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:textColor="@drawable/selector_button_right_text"
+                    android:background="@drawable/selector_balance_query"
+                    android:letterSpacing="0.1"
+                    android:textSize="50dp"
+                    android:text="查询余额"
+                    android:layout_marginLeft="40dp"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:background="@mipmap/fragment_balance_child_background"
+                android:layout_marginTop="80dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:letterSpacing="0.1"
+                        android:textColor="@color/fragment_balance_text_color"
+                        android:textStyle="bold"
+                        android:text="张小闹"
+                        android:gravity="center"
+                        android:textSize="48dp"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp" />
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp">
+                        <TextView
+                            android:letterSpacing="0.1"
+                            android:text="当前余额"
+                            android:textSize="30dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textStyle="bold"
+                                android:text="¥"
+                                android:textColor="@color/fragment_balance_text_color"
+                                android:textSize="40dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_marginLeft="10dp"
+                                android:textStyle="bold"
+                                android:text="7850.89"
+                                android:textColor="@color/fragment_balance_text_color"
+                                android:textSize="70dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:letterSpacing="0.4"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:text="**** **** **** 1234"
+                        android:textSize="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_vip_balance"
+                    android:layout_margin="30dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/vip1_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/iv_pig_balance"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:src="@mipmap/fragment_balance_pig"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="90dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <include layout="@layout/layout_fragment_button"/>
+
+        </FrameLayout>
+
+        <include layout="@layout/layout_copyright"/>
+
+
+    </LinearLayout>
 
 </FrameLayout>

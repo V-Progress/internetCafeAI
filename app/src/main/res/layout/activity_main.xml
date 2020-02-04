@@ -59,7 +59,7 @@
                 android:gravity="center"
                 android:text="欢迎使用"
                 android:textColor="@color/text_color_white"
-                android:textSize="60dp" />
+                android:textSize="100dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                 android:gravity="center"
                 android:text="网吧AI自助系统"
                 android:textColor="@color/text_color_white"
-                android:textSize="100dp"
+                android:textSize="150dp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -91,7 +91,7 @@
                     android:gravity="center"
                     android:text="AI SELF-SERVICE SYSTEM IN INTERNET CAFES"
                     android:textColor="@color/text_color_white"
-                    android:textSize="33dp" />
+                    android:textSize="50dp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -104,8 +104,9 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
+                android:layout_marginTop="50dp"
                 android:paddingLeft="100dp"
-                android:paddingTop="50dp"
+                android:paddingTop="100dp"
                 android:paddingRight="100dp"
                 android:paddingBottom="50dp">
 

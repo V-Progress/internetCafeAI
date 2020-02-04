@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity {
     }
 
 
-
     /***
      * 自助充值
      * @param view

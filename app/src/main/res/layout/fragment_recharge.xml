@@ -3,12 +3,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/fragment_background"
     tools:context=".RechargeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="1200dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:padding="80dp"
+            android:orientation="vertical"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/shape_recharge_amt_parent_bg"
+            android:layout_width="match_parent"
+            android:layout_height="800dp">
+
+            <EditText
+                android:textStyle="bold"
+                android:background="@drawable/shape_recharge_edit_bg"
+                android:padding="30dp"
+                android:textSize="32dp"
+                android:gravity="center"
+                android:hint="请输入充值卡号"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RadioGroup
+                android:paddingTop="80dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+                    <RadioButton
+                        android:text="20元"
+                        style="@style/recharge_amt_button_style"/>
+
+                    <RadioButton
+                        android:layout_marginLeft="50dp"
+                        android:text="30元"
+                        style="@style/recharge_amt_button_style"/>
+
+                    <RadioButton
+                        android:layout_marginLeft="50dp"
+                        android:text="50元"
+                        style="@style/recharge_amt_button_style"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+                    <RadioButton
+                        style="@style/recharge_amt_button_style"
+                        android:text="100元" />
+
+                    <RadioButton
+                        android:layout_marginLeft="50dp"
+                        style="@style/recharge_amt_button_style"
+                        android:text="200元" />
+
+                    <RadioButton
+                        android:layout_marginLeft="50dp"
+                        android:textSize="50dp"
+                        android:text="自定义"
+                        style="@style/recharge_amt_button_style"/>
+                </LinearLayout>
+            </RadioGroup>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="90dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <include layout="@layout/layout_fragment_button"/>
+
+        </FrameLayout>
+
+        <include layout="@layout/layout_copyright"/>
+    </LinearLayout>
 
 </FrameLayout>

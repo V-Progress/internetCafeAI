@@ -14,4 +14,20 @@
     <color name="button_yellow_text_color">#1E1A3B</color>
     <color name="button_yellow">#FFEA1D</color>
     <color name="fragment_background_color">#E8313355</color>
+
+    <!--人脸扫描页-->
+    <color name="fragment_face_rect_bg_color">#262952</color>
+    <color name="fragment_face_rect_stroke_color">#63678C</color>
+    <color name="fragment_face_tips_text_color">#F9E818</color>
+
+    <!--充值页-->
+    <color name="fragment_recharge_amt_bg_color">#ffffff</color>
+    <color name="fragment_recharge_edit_bg_color">#464869</color>
+    <color name="fragment_recharge_amt_text_color_normal">#090F3B</color>
+    <color name="fragment_recharge_amt_text_color_checked">#FFEA1D</color>
+    <color name="fragment_recharge_idcard_label_color">#10143A</color>
+
+    <!--余额页-->
+    <color name="fragment_balance_background">#EAEAF6</color>
+    <color name="fragment_balance_text_color">#090D3A</color>
 </resources>
