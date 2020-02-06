@@ -15,6 +15,9 @@
     <color name="button_yellow">#FFEA1D</color>
     <color name="fragment_background_color">#E8313355</color>
 
+    <!--扫码页-->
+    <color name="fragment_scan_text_color">#0B0C3D</color>
+
     <!--人脸扫描页-->
     <color name="fragment_face_rect_bg_color">#262952</color>
     <color name="fragment_face_rect_stroke_color">#63678C</color>
@@ -26,6 +29,8 @@
     <color name="fragment_recharge_amt_text_color_normal">#090F3B</color>
     <color name="fragment_recharge_amt_text_color_checked">#FFEA1D</color>
     <color name="fragment_recharge_idcard_label_color">#10143A</color>
+    <color name="fragment_recharge_pay_text_color">#77799F</color>
+    <color name="fragment_recharge_pay_dash_line_color">#FDEA22</color>
 
     <!--余额页-->
     <color name="fragment_balance_background">#EAEAF6</color>

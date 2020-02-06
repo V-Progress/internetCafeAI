@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="line">
+
+    <!--android:color="@color/fragment_recharge_pay_dash_line_color"-->
+    <stroke
+        android:width="6dp"
+        android:color="@color/text_color_black"
+        android:dashWidth="3dp"
+        android:dashGap="5dp" />
+
+    <size android:height="2dp" />
+
+</shape>

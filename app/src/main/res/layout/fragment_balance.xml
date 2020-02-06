@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/fragment_background"
-    tools:context=".BalanceFragment">
+    tools:context=".fragment.BalanceFragment">
 
     <LinearLayout
         android:orientation="vertical"
@@ -26,6 +26,8 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                    android:id="@+id/edt_card_number_balance"
                     android:background="@drawable/shape_recharge_edit_bg"
                     android:padding="30dp"
                     android:textSize="32dp"
@@ -36,6 +38,7 @@
                     android:layout_height="wrap_content" />
 
                 <Button
+                    android:id="@+id/btn_query_balance"
                     android:textColor="@drawable/selector_button_right_text"
                     android:background="@drawable/selector_balance_query"
                     android:letterSpacing="0.1"
@@ -54,6 +57,8 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/ll_info_balance"
                     android:orientation="vertical"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="50dp"
@@ -62,6 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/tv_name_balance"
                         android:letterSpacing="0.1"
                         android:textColor="@color/fragment_balance_text_color"
                         android:textStyle="bold"
@@ -97,6 +103,7 @@
                                 android:layout_height="wrap_content" />
 
                             <TextView
+                                android:id="@+id/tv_balance_balance"
                                 android:layout_marginLeft="10dp"
                                 android:textStyle="bold"
                                 android:text="7850.89"
@@ -108,6 +115,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/tv_card_number_balance"
                         android:letterSpacing="0.4"
                         android:gravity="center"
                         android:layout_weight="1"
@@ -119,12 +127,20 @@
                 </LinearLayout>
 
                 <ImageView
+                    android:visibility="gone"
                     android:id="@+id/iv_vip_balance"
                     android:layout_margin="30dp"
                     android:layout_alignParentRight="true"
                     android:src="@mipmap/vip1_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:visibility="gone"
+                    android:id="@+id/pb_loading_balance"
+                    android:layout_centerInParent="true"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp" />
 
                 <ImageView
                     android:id="@+id/iv_pig_balance"

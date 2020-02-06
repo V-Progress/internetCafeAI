@@ -8,13 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--<item name="android:background">@drawable/shape_recharge_amt_radiobutton_bg</item>-->
+    <!--<item name="android:textColor">@drawable/selector_recharge_amt_text</item>-->
+    <!--<item name="android:button">@null</item>-->
     <style name="recharge_amt_button_style">
+        <item name="android:clickable">true</item>
+        <item name="android:orientation">horizontal</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">80dp</item>
-        <item name="android:button">@null</item>
-        <item name="android:textColor">@drawable/selector_recharge_amt_text</item>
-        <item name="android:background">@drawable/selector_recharge_amt</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>

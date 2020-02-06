@@ -6,7 +6,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:background="@mipmap/fragment_background"
-    tools:context=".ScanFragment">
+    tools:context=".fragment.ScanFragment">
 
     <LinearLayout
         android:paddingTop="30dp"
@@ -90,11 +90,32 @@
                     android:background="@drawable/shape_scan_background"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
-                <ImageView
-                    android:src="@mipmap/phone_icon"
+                <LinearLayout
                     android:layout_gravity="center"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_tips_scan"
+                        android:src="@mipmap/phone_icon"
+                        android:layout_gravity="center"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp" />
+
+                    <TextView
+                        android:id="@+id/tv_tips_scan"
+                        android:visibility="gone"
+                        android:layout_marginTop="30dp"
+                        android:textSize="40dp"
+                        android:textColor="@color/fragment_scan_text_color"
+                        android:text=""
+                        android:padding="10dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
             </FrameLayout>
 
         </LinearLayout>
@@ -136,5 +157,20 @@
         <include layout="@layout/layout_copyright"/>
 
     </LinearLayout>
+
+    <Button
+        android:layout_marginBottom="50dp"
+        android:layout_gravity="bottom"
+        android:id="@+id/btn_test_success"
+        android:text="扫码成功"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_marginBottom="100dp"
+        android:layout_gravity="bottom"
+        android:id="@+id/btn_test_failed"
+        android:text="扫码失败"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </FrameLayout>

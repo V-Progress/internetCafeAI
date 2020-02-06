@@ -3,6 +3,11 @@ package com.yunbiao.internetcafe_ai;
 import android.view.View;
 import android.widget.TextView;
 
+import com.yunbiao.internetcafe_ai.fragment.BalanceFragment;
+import com.yunbiao.internetcafe_ai.fragment.FaceFragment;
+import com.yunbiao.internetcafe_ai.fragment.RechargeFragment;
+import com.yunbiao.internetcafe_ai.fragment.ScanFragment;
+
 public class MainActivity extends BaseActivity {
 
     private TextView tvWeather;

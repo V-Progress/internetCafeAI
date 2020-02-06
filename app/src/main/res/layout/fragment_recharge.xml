@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@mipmap/fragment_background"
-    tools:context=".RechargeFragment">
+    tools:context=".fragment.RechargeFragment">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,12 +16,14 @@
         <LinearLayout
             android:padding="80dp"
             android:orientation="vertical"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="120dp"
             android:background="@drawable/shape_recharge_amt_parent_bg"
             android:layout_width="match_parent"
             android:layout_height="800dp">
 
             <EditText
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                android:id="@+id/edt_card_number_recharge"
                 android:textStyle="bold"
                 android:background="@drawable/shape_recharge_edit_bg"
                 android:padding="30dp"
@@ -30,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <RadioGroup
+            <LinearLayout
                 android:paddingTop="80dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -42,19 +45,77 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp">
 
-                    <RadioButton
+                    <LinearLayout
+                        android:id="@+id/ll_20_recharge"
                         android:text="20元"
-                        style="@style/recharge_amt_button_style"/>
+                        style="@style/recharge_amt_button_style">
+                        <TextView
+                            android:id="@+id/tv_20_recharge"
+                            android:text="20"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="100dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
 
-                    <RadioButton
+                        <TextView
+                            android:id="@+id/tv_yuan_20_recharge"
+                            android:layout_marginTop="20dp"
+                            android:text="元"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="40dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_30_recharge"
                         android:layout_marginLeft="50dp"
                         android:text="30元"
-                        style="@style/recharge_amt_button_style"/>
+                        style="@style/recharge_amt_button_style">
 
-                    <RadioButton
+                        <TextView
+                            android:id="@+id/tv_30_recharge"
+                            android:text="30"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="100dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tv_yuan_30_recharge"
+                            android:layout_marginTop="20dp"
+                            android:text="元"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="40dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_50_recharge"
                         android:layout_marginLeft="50dp"
                         android:text="50元"
-                        style="@style/recharge_amt_button_style"/>
+                        style="@style/recharge_amt_button_style">
+
+                        <TextView
+                            android:id="@+id/tv_50_recharge"
+                            android:text="50"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="100dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tv_yuan_50_recharge"
+                            android:layout_marginTop="20dp"
+                            android:text="元"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="40dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -65,26 +126,110 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp">
 
-                    <RadioButton
+                    <LinearLayout
+                        android:id="@+id/ll_100_recharge"
                         style="@style/recharge_amt_button_style"
-                        android:text="100元" />
+                        android:text="100元">
 
-                    <RadioButton
+                        <TextView
+                            android:id="@+id/tv_100_recharge"
+                            android:text="100"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="100dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tv_yuan_100_recharge"
+                            android:layout_marginTop="20dp"
+                            android:text="元"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="40dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_200_recharge"
                         android:layout_marginLeft="50dp"
                         style="@style/recharge_amt_button_style"
-                        android:text="200元" />
+                        android:text="200元" >
 
-                    <RadioButton
+                        <TextView
+                            android:id="@+id/tv_200_recharge"
+                            android:text="200"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="100dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tv_yuan_200_recharge"
+                            android:layout_marginTop="20dp"
+                            android:text="元"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="40dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_custom_recharge"
+                        style="@style/recharge_amt_button_style"
                         android:layout_marginLeft="50dp"
-                        android:textSize="50dp"
+                        android:orientation="vertical"
                         android:text="自定义"
-                        style="@style/recharge_amt_button_style"/>
+                        android:textSize="50dp">
+
+                        <TextView
+                            android:id="@+id/tv_custom_recharge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="自定义"
+                            android:textColor="@color/fragment_recharge_amt_text_color_normal"
+                            android:textSize="50dp" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_custom_input_recharge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <EditText
+                                android:paddingLeft="10dp"
+                                android:id="@+id/edt_custom_recharge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/shape_input_recharge_left"
+                                android:gravity="center"
+                                android:hint="请输入金额"
+                                android:inputType="number"
+                                android:maxLength="4"
+                                android:padding="10dp"
+                                android:textColor="@color/text_color_black"
+                                android:textSize="24dp" />
+
+                            <Button
+                                android:id="@+id/btn_custom_confirm_recharge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/shape_input_recharge_right"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="确定"
+                                android:textSize="24dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
-            </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
 
         <FrameLayout
-            android:layout_marginBottom="20dp"
             android:layout_marginTop="90dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
