@@ -22,6 +22,8 @@
     <color name="fragment_face_rect_bg_color">#262952</color>
     <color name="fragment_face_rect_stroke_color">#63678C</color>
     <color name="fragment_face_tips_text_color">#F9E818</color>
+    <color name="fragment_compare_result_tips_text_color">#0A0A3C</color>
+    <color name="fragment_compare_result_tips_text_color2">#F6EC1B</color>
 
     <!--充值页-->
     <color name="fragment_recharge_amt_bg_color">#ffffff</color>
