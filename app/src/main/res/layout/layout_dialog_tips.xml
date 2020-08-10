@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600dp"
+    android:layout_height="600dp"
+    android:background="@drawable/shape_tips_dialog_background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="46dp">
+
+    <ImageView
+        android:id="@+id/iv_tips_dialog"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
+
+    <TextView
+        android:id="@+id/tv_title_tips_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:letterSpacing="0.1"
+        android:maxLength="12"
+        android:maxLines="1"
+        android:textColor="@color/text_color_black"
+        android:textSize="36dp" />
+
+    <TextView
+        android:lineSpacingExtra="6dp"
+        android:maxLength="40"
+        android:id="@+id/tv_msg_tips_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/dialog_tips_msg_text_color"
+        android:textSize="32dp" />
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_left_tips_dialog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_button_tips_dialog"
+            android:letterSpacing="0.3"
+            android:padding="15dp"
+            android:textColor="@drawable/selector_button_right_text"
+            android:textSize="26dp" />
+
+        <Button
+            android:id="@+id/btn_right_tips_dialog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_button_tips_dialog"
+            android:letterSpacing="0.3"
+            android:padding="15dp"
+            android:textColor="@drawable/selector_button_right_text"
+            android:textSize="26dp" />
+    </LinearLayout>
+
+</LinearLayout>

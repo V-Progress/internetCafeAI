@@ -37,4 +37,8 @@
     <!--余额页-->
     <color name="fragment_balance_background">#EAEAF6</color>
     <color name="fragment_balance_text_color">#090D3A</color>
+    
+    <!--提示框背景色-->
+    <color name="dialog_tips_background">#ffffff</color>
+    <color name="dialog_tips_msg_text_color">#A5A7C0</color>
 </resources>
