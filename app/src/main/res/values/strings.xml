@@ -5,4 +5,21 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="accessibility_description">xxx按键监听的无障碍辅助服务</string>
+
+    <!--Scan-->
+    <string name="scan_query_ing">正在查询...</string>
+    <string name="scan_dialog_title">请扫描二维码~</string>
+    <string name="scan_dialog_message">请打开小程序，扫描您的二维码</string>
+    <string name="scan_query_seat_number_tip"><Data><![CDATA[您预约的座位在<font color='#F6EC1B'>%1$s</font>，请进行身份验证]]></Data></string>
+    <string name="scan_query_seat_failed_tip"><Data><![CDATA[您的预约码<font color='#F6EC1B'>%1$s</font>]]></Data></string>
+    <string name="scan_code_overdue">已过期</string>
+
+    <!--Recharge-->
+    <string name="recharge_card_empty_title">卡号为空</string>
+    <string name="recharge_card_empty_tip">请输入证件号码或刷卡</string>
+    <string name="recharge_amt_empty_title">请选择金额</string>
+    <string name="recharge_amt_empty_tip">请选择您要充值的金额</string>
+    <string name="recharge_amt_input_please">请输入金额</string>
+    <string name="recharge_amt_input_btn_again">重新输入</string>
+    <string name="recharge_amt_input_btn_confirm">确定</string>
 </resources>

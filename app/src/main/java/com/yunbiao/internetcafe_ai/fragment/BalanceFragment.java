@@ -1,7 +1,5 @@
 package com.yunbiao.internetcafe_ai.fragment;
 
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -11,8 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yunbiao.internetcafe_ai.R;
+import com.yunbiao.internetcafe_ai.common.Constants;
+import com.yunbiao.internetcafe_ai.usb.IDCardReader;
+import com.yunbiao.internetcafe_ai.usb.IdCardMsg;
+import com.yunbiao.internetcafe_ai.utils.DialogUtil;
+import com.yunbiao.internetcafe_ai.utils.SpeechUtil;
 
-public class BalanceFragment extends BaseFragment {
+import java.util.HashMap;
+
+public class BalanceFragment extends BaseNetFragment {
 
     private EditText edtCardNumber;
     private Button btnQuery;
@@ -53,30 +58,53 @@ public class BalanceFragment extends BaseFragment {
                     return;
                 }
 
-                pbLoading.setVisibility(View.VISIBLE);
-                handler.sendEmptyMessageDelayed(0,3000);
+                requestTest(Constants.Url.QUERY_BALANCE,new HashMap<String, String>(),false);
             }
         });
     }
 
-    Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            if (msg.what == 0) {
-                pbLoading.setVisibility(View.GONE);
-                ivPig.setVisibility(View.GONE);
-                llInfo.setVisibility(View.VISIBLE);
+    @Override
+    protected void initData() {
+        IDCardReader.getInstance().startReaderThread(getActivity(),readListener);
+    }
 
-                tvName.setText("张哈哈");
-                tvBalance.setText("50.00");
-                tvCardNumber.setText(edtCardNumber.getText().toString());
+    private IDCardReader.ReadListener readListener = new IDCardReader.ReadListener() {
+        @Override
+        public void getCardInfo(IdCardMsg msg) {
+            SpeechUtil.getInstance().playOkRing();
+            if(msg == null || TextUtils.isEmpty(msg.id_num)){
+                edtCardNumber.setText("");
+                DialogUtil.instance().showFailedTips(getActivity(),"读取失败","证件读取失败，请重新刷卡");
+                return;
             }
+
+            edtCardNumber.setText(msg.id_num);
+            requestTest(Constants.Url.QUERY_BALANCE,new HashMap<String, String>(),true);
         }
     };
 
+    private void setBalanceInfo(){
+        ivPig.setVisibility(View.GONE);
+        llInfo.setVisibility(View.VISIBLE);
+
+        tvName.setText("张哈哈");
+        tvBalance.setText("50.00");
+        tvCardNumber.setText(edtCardNumber.getText().toString());
+    }
 
     @Override
-    protected void initData() {
+    protected void onError(String mUrl, Exception e) {
+        DialogUtil.instance().showFailedTips(getActivity(),"查询失败","查询失败了，请重试一下吧~");
+    }
 
+    @Override
+    protected void onResponse(String mUrl, Object o) {
+        setBalanceInfo();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        IDCardReader.getInstance().closeReaderThread();
     }
 }

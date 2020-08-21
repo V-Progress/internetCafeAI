@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,13 +13,14 @@
         android:background="#ff010318">
 
         <ImageView
+            android:id="@+id/iv_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="50dp"
             android:src="@mipmap/ic_launcher" />
 
-        <TextClock
+        <!--<TextClock
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -27,7 +28,7 @@
             android:layout_toLeftOf="@id/tv_main_weather"
             android:text="2019年12月9日  星期三"
             android:textColor="@color/text_color_white"
-            android:textSize="36dp" />
+            android:textSize="36dp" />-->
 
         <TextView
             android:id="@+id/tv_main_weather"

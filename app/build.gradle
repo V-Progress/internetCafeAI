@@ -7,33 +7,87 @@ android {
         minSdkVersion 22
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
     }
+    //签名配置
+    signingConfigs {
+        release {
+            keyAlias 'yunbiao'
+            keyPassword '123456'
+            storeFile file('yunbiao.jks')
+            storePassword '123456'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            aaptOptions.cruncherEnabled = false
+            aaptOptions.useNewCruncher = false
+            minifyEnabled true//混淆
+            shrinkResources true//压缩资源文件(必须开启混淆)
+            signingConfig signingConfigs.release
+            applicationIdSuffix ".release"
+        }
+        debug {
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            aaptOptions.cruncherEnabled = false
+            aaptOptions.useNewCruncher = false
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+            applicationIdSuffix ".debug"
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    //APK输出配置
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (variant.buildType.name == "debug") {
+                outputFileName = "AIInternetBar" + defaultConfig.versionName + "_debug" + ".apk"
+            } else {
+                outputFileName = "AIInternetBar" + defaultConfig.versionName + ".apk"
+            }
         }
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:support-v4:28.0.0'
-
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
-    implementation 'jp.wasabeef:glide-transformations:2.0.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation'com.github.bumptech.glide:glide:3.7.0'
-    implementation'jp.wasabeef:glide-transformations:2.0.1'
+    implementation files('libs\\sdtapi.jar')
+    implementation files('libs\\arcsoft_face.jar')
+    implementation files('libs\\arcsoft_image_util.jar')
+
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'
 
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.zhy:okhttputils:2.6.2'
+
+    implementation 'com.elvishew:xlog:1.6.1'
+
+    //RXJAVA
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
 }

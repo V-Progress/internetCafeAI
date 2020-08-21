@@ -76,11 +76,10 @@
                     android:layout_marginRight="50dp"
                     android:layout_weight="1"
                     android:background="@drawable/shape_face_rect">
-                    <FrameLayout
+                    <com.yunbiao.internetcafe_ai.face.CertificatesView
                         android:id="@+id/face_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
-
                 </FrameLayout>
 
                 <TextView
@@ -122,13 +121,19 @@
                             android:layout_weight="1"
                             android:orientation="vertical">
 
-                            <ImageView
-                                android:id="@+id/iv_face_face"
+                            <FrameLayout
+                                android:padding="2dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
                                 android:scaleType="fitCenter"
-                                android:src="@mipmap/face_img" />
+                                android:background="@mipmap/face_img">
+                                <ImageView
+                                    android:id="@+id/iv_face_face"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"/>
+                            </FrameLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -176,13 +181,19 @@
                             android:layout_weight="1"
                             android:orientation="vertical">
 
-                            <ImageView
-                                android:id="@+id/iv_idcard_img_face"
+                            <FrameLayout
+                                android:padding="2dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
                                 android:scaleType="fitCenter"
-                                android:src="@mipmap/face_img" />
+                                android:background="@mipmap/face_img">
+                                <ImageView
+                                    android:id="@+id/iv_idcard_img_face"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"/>
+                            </FrameLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -321,37 +332,6 @@
         </FrameLayout>
 
         <include layout="@layout/layout_copyright" />
-
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_marginBottom="50dp"
-        android:layout_gravity="bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btn_face_success"
-            android:text="刷脸成功"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btn_read_success"
-            android:text="读证成功"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btn_compare_success"
-            android:text="对比成功"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btn_compare_failed"
-            android:text="对比失败"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
 </FrameLayout>

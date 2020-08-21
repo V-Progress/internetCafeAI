@@ -14,8 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.yunbiao.internetcafe_ai.ClickUtil;
+import com.yunbiao.internetcafe_ai.utils.ClickUtil;
 import com.yunbiao.internetcafe_ai.R;
+import com.yunbiao.internetcafe_ai.utils.DialogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -96,18 +97,11 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
     }
 
     protected void showProgress(String msg){
-        dismissProgress();
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setCancelable(false);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setMessage(msg);
-        progressDialog.show();
+        DialogUtil.instance().showProgress(getActivity(),msg);
     }
 
     protected void dismissProgress(){
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
+        DialogUtil.instance().dismissProgress();
     }
 
     /***
@@ -119,14 +113,6 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
 
     protected void jumpFragment(BaseFragment fragment) {
         fragmentManager.beginTransaction().replace(R.id.fl_content, fragment).commit();
-    }
-
-    protected void request(String url, StringCallback callback) {
-        request(url, null, callback);
-    }
-
-    protected void request(String url, Map<String, String> params, StringCallback callback) {
-        OkHttpUtils.post().url(url).params(params).build().execute(callback);
     }
 
     /**

@@ -9,12 +9,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.yunbiao.internetcafe_ai.R;
+import com.yunbiao.internetcafe_ai.common.Constants;
+import com.yunbiao.internetcafe_ai.usb.IDCardReader;
+import com.yunbiao.internetcafe_ai.usb.IdCardMsg;
+import com.yunbiao.internetcafe_ai.utils.DialogUtil;
+import com.yunbiao.internetcafe_ai.utils.SpeechUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
-public class RechargeFragment extends BaseFragment {
+public class RechargeFragment extends BaseNetFragment {
 
     private List<Integer> amtIdList = new ArrayList<>();
     private List<Integer> amtNumberList = new ArrayList<>();
@@ -36,33 +42,62 @@ public class RechargeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-
+        IDCardReader.getInstance().startReaderThread(getActivity(), readListener);
     }
+
+    private IDCardReader.ReadListener readListener = new IDCardReader.ReadListener() {
+        @Override
+        public void getCardInfo(IdCardMsg msg) {
+            SpeechUtil.getInstance().playOkRing();
+            if(msg == null || TextUtils.isEmpty(msg.id_num)){
+                edtCardNumber.setText("");
+                DialogUtil.instance().showFailedTips(getActivity(),"读取失败","证件读取失败，请重新刷卡");
+                return;
+            }
+            edtCardNumber.setText(msg.id_num);
+        }
+    };
 
     @Override
     protected void onClickRight() {
         String cardNumber = edtCardNumber.getText().toString();
         if(TextUtils.isEmpty(cardNumber)){
             Log.e(TAG, "onClickRight: 请输入卡号或刷卡");
+            DialogUtil.instance().show1BtnSampleTips(getActivity(),getString(R.string.recharge_card_empty_title),getString(R.string.recharge_card_empty_tip));
             return;
         }
 
         if (mSelectedAmount == 0) {
             Log.e(TAG, "onClickRight: 请选择金额");
+            DialogUtil.instance().show1BtnSampleTips(getActivity(),getString(R.string.recharge_amt_empty_title),getString(R.string.recharge_amt_empty_tip));
             return;
         }
 
         Log.e(TAG, "onClickRight: 输入卡号为：" + cardNumber);
         Log.e(TAG, "onClickRight: 选中金额为：" + mSelectedAmount);
 
-        RechargePayFragment rechargePayFragment = new RechargePayFragment();
+        requestTest(Constants.Url.REQUEST_ORDER,new HashMap<String, String>(),true);
+    }
+
+    @Override
+    protected void onError(String mUrl, Exception e) {
+        DialogUtil.instance().showFailedTips(getActivity(),"请求超时","服务器出了些状况，请您再试一次呢~");
+    }
+
+    @Override
+    protected void onResponse(String mUrl, Object o) {
+        String cardNumber = edtCardNumber.getText().toString();
         Bundle bundle = new Bundle();
         bundle.putString("cardNumber",cardNumber);
         bundle.putInt("amount",mSelectedAmount);
-        rechargePayFragment.setArguments(bundle);
-        jumpFragment(rechargePayFragment);
+        jumpFragment(RechargePayFragment.newInstance(bundle));
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        IDCardReader.getInstance().closeReaderThread();
+    }
     /***
      * =====初始化金额输入========================================================================================
      */
@@ -132,17 +167,17 @@ public class RechargeFragment extends BaseFragment {
                             Log.e(TAG, "onClick: " + edtCustom.getText().toString());
                             String number = edtCustom.getText().toString();
                             if (TextUtils.isEmpty(number)) {
-                                edtCustom.setError("请输入金额");
+                                edtCustom.setError(getString(R.string.recharge_amt_input_please));
                                 return;
                             }
 
                             if (edtCustom.isEnabled()) {
                                 edtCustom.setEnabled(false);
-                                btnCustom.setText("重新输入");
+                                btnCustom.setText(getString(R.string.recharge_amt_input_btn_again));
                                 mSelectedAmount = Integer.parseInt(number);
                             } else {
                                 edtCustom.setEnabled(true);
-                                btnCustom.setText("确定");
+                                btnCustom.setText(getString(R.string.recharge_amt_input_btn_confirm));
                             }
                         }
                     });
